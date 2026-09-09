@@ -1,0 +1,21 @@
+# Build output (out-of-source)
+/build/
+/cmake-build-*/
+
+# Generated API docs
+/docs/api/
+
+# Qt generated
+*.pro.user
+*.qmake.stash
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+
+# JetBrains
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
