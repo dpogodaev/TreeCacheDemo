@@ -24,5 +24,6 @@ struct CommitResult
     QHash<Id, Id> idMap = {};
 
     /// @brief Returns whether the commit succeeded.
+    /// @return `true` if the commit succeeded; otherwise, `false`.
     bool isSuccess() const { return status == CommitStatus::Success; }
 };

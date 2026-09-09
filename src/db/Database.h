@@ -76,6 +76,7 @@ private:
 
     /// @brief Returns whether the element has any child that is not deleted.
     /// @param id The ID of the element.
+    /// @return `true` if the element has at least one child that is not deleted; otherwise, `false`.
     bool hasChildren(Id id) const;
 
     /// @brief Appends an element and its whole subtree, parents before children.
