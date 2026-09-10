@@ -1,5 +1,8 @@
 #pragma once
 
+/// @file
+/// @brief The ID of a tree element and its reserved values.
+
 #include <limits>
 
 #include <QtGlobal>
@@ -12,9 +15,13 @@
 using Id = qint64;
 
 /// @brief Returns whether the ID identifies an element stored in the database.
+/// @param id The ID of the element.
+/// @return `true` if the ID is that of a stored element; otherwise, `false`.
 constexpr bool isPersistent(const Id id) { return id > 0; }
 
 /// @brief Returns whether the ID is a temporary ID of an element that has not been committed.
+/// @param id The ID of the element.
+/// @return `true` if the ID is temporary; otherwise, `false`.
 constexpr bool isTemporary(const Id id) { return id < 0; }
 
 /// @brief The parent ID of a root element.

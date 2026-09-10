@@ -1,5 +1,8 @@
 #pragma once
 
+/// @file
+/// @brief The sample tree the application starts with.
+
 #include <vector>
 
 #include "db/TreeDbElement.h"
