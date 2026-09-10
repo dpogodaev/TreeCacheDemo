@@ -16,11 +16,11 @@
 class Database
 {
 public:
-    /// @brief Constructs the database from the given elements.
+    /// @brief Constructs the database from the specified elements.
     /// @param initialElements The elements of the initial tree, parents before children.
     explicit Database(std::vector<TreeDbElement> initialElements);
 
-    /// @brief Discards all changes and restores the initial tree.
+    /// @brief Restores the initial tree.
     void reset();
 
     /// @brief Returns an element of the tree by ID.
@@ -54,17 +54,17 @@ private:
         /// The next ID to assign to a new element.
         Id nextId = 1;
 
-        /// @brief Inserts the given elements and assigns them IDs.
+        /// @brief Inserts the specified elements and assigns them IDs.
         /// @param added The elements to insert, parents before children.
         /// @return The result, with the IDs assigned to the inserted elements on success.
         CommitResult applyAdded(const QVector<ChangeSet::Added>& added);
 
-        /// @brief Updates the given elements.
+        /// @brief Updates the specified elements.
         /// @param modified The elements to update.
         /// @return `CommitStatus::Success`, or the reason an element could not be updated.
         CommitStatus applyModified(const QVector<ChangeSet::Modified>& modified);
 
-        /// @brief Deletes the given elements together with their subtrees.
+        /// @brief Deletes the specified elements with their subtrees.
         /// @param deleted The elements to delete.
         /// @return `CommitStatus::Success`, or the reason an element could not be deleted.
         CommitStatus applyDeleted(const QVector<ChangeSet::Deleted>& deleted);
@@ -88,6 +88,6 @@ private:
     /// The elements of the initial tree.
     std::vector<TreeDbElement> m_initialElements;
 
-    /// The current state.
+    /// The current state of the database.
     Storage m_storage;
 };

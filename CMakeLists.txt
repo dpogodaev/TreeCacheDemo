@@ -7,6 +7,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt5 5.15 REQUIRED COMPONENTS Core)
 
 add_library(treecache_lib STATIC
+    src/cache/Cache.cpp
+    src/cache/Cache.h
+    src/cache/TrackingState.h
+    src/cache/TreeCacheElement.h
     src/db/ChangeSet.h
     src/db/CommitResult.h
     src/db/Database.cpp
