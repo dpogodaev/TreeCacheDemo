@@ -74,10 +74,10 @@ private:
     /// @param elements The elements, parents before children.
     void seed(const std::vector<TreeDbElement>& elements);
 
-    /// @brief Returns whether the element has any child that is not deleted.
+    /// @brief Returns the number of direct children of the element that are not deleted.
     /// @param id The ID of the element.
-    /// @return `true` if the element has at least one child that is not deleted; otherwise, `false`.
-    bool hasChildren(Id id) const;
+    /// @return The number of children.
+    int childCount(Id id) const;
 
     /// @brief Appends an element and its whole subtree, parents before children.
     /// @param id The ID of the element.

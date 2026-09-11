@@ -48,30 +48,31 @@ std::optional<TreeElement> Database::get(const Id id) const
         .id = element.id,
         .parentId = element.parentId,
         .text = element.text,
-        .hasChildren = hasChildren(id)
+        .childCount = childCount(id)
     };
 }
 
-bool Database::hasChildren(const Id id) const
+int Database::childCount(const Id id) const
 {
     const auto searchResult = m_storage.childrenOf.constFind(id);
 
     if (searchResult == m_storage.childrenOf.constEnd())
     {
-        return false;
+        return 0;
     }
 
+    int count = 0;
     for (const Id childId: searchResult.value())
     {
         const auto child = m_storage.elements.constFind(childId);
 
         if (child != m_storage.elements.constEnd() && !child->isDeleted)
         {
-            return true;
+            ++count;
         }
     }
 
-    return false;
+    return count;
 }
 
 CommitResult Database::Storage::applyAdded(const QVector<ChangeSet::Added>& added)

@@ -16,6 +16,6 @@ struct TreeElement
     /// The text of the element.
     QString text;
 
-    /// Whether the element has any children.
-    bool hasChildren;
+    /// The number of direct children of the element that are not deleted.
+    int childCount;
 };

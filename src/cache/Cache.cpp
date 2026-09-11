@@ -29,7 +29,7 @@ void Cache::load(const TreeElement& element)
         .id = element.id,
         .parentId = element.parentId,
         .text = element.text,
-        .hasChildren = element.hasChildren,
+        .hasChildren = element.childCount > 0,
         .state = TrackingState::Unchanged,
     };
     m_storage.elements.insert(cacheElement.id, cacheElement);
