@@ -1,10 +1,12 @@
 # TreeCacheDemo
 
-A demo project of a change-tracking cache over a lazily-loaded tree.
+A demo project of a change-tracking cache over a lazily-loaded tree.  
+The tree uses a soft-delete mechanism: elements are marked as deleted instead of being physically removed.
 
 ## User interface (UI)
 
-The Database pane (left) shows the persisted tree; the Cache pane (right) shows what's loaded and tracked locally.
+The Database pane (left) shows the persisted tree; the Cache pane (right) shows what's loaded and tracked locally.  
+Elements in the Cache pane are placed in load/add order, not the Database pane's order.
 
 ![TreeCache window](docs/ui-screenshot.png)
 
@@ -17,13 +19,13 @@ The Database pane (left) shows the persisted tree; the Cache pane (right) shows 
 **Text styling in the Cache pane:**
 
 * blue – added to the cache, not saved yet (e.g. "New element")
-* gray strikethrough – marked as deleted in the cache, not saved yet (e.g. "Jim")
+* gray strikethrough – marked for deletion in the cache, not saved yet (e.g. "Jim")
 
 **Text styling in the Database pane:**
 
-* gray strikethrough – marked as deleted in the database (e.g. "Alice")
+* gray strikethrough – marked as deleted (e.g. "Alice")
 
-Deleted elements are shown in the Database pane by default. To hide them, set `kShowDeletedElementsInDbTree` to `false` in `src/ui/MainWindow.cpp` and rebuild.
+To hide deleted elements in the Database pane, set `kShowDeletedElementsInDbTree` to `false` in `src/ui/MainWindow.cpp` and rebuild.
 
 ## Toolbar
 
